@@ -71,7 +71,7 @@ In the **Environment Variables** window:
    | `WIN_KITS`           | `C:\Program Files (x86)\Windows Kits\10`              |
    | `WIN_KITS_VER`       | `10.0.19041.0`                                        |
    | `LIB`                | `%WIN_KITS%\Lib\%WIN_KITS_VER%\um\x64;%WIN_KITS%\Lib\%WIN_KITS_VER%\ucrt\x64;%MS_VS_PATH%\Community\VC\Tools\MSVC\%MS_VS_VER%\lib\x64;`  |
-   | `INCLUDE`            | `%WIN_KITS%\Include\%WIN_KITS_VER%\ucrt;%WIN_KITS%\Include\%WIN_KITS_VER%\um;%WIN_KITS%\Include\%WIN_KITS_VER%\shared;%MS_VS_VERSION%\Community\VC\Tools\MSVC\%MS_VS_VER%\include;` |
+   | `INCLUDE`            | `%WIN_KITS%\Include\%WIN_KITS_VER%\ucrt;%WIN_KITS%\Include\%WIN_KITS_VER%\um;%WIN_KITS%\Include\%WIN_KITS_VER%\shared;%MS_VS_PATH%\Community\VC\Tools\MSVC\%MS_VS_VER%\include;` |
 
 
 ## 6. **Modify System Environment Variables**
