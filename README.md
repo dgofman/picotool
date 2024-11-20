@@ -45,7 +45,7 @@ In the **Environment Variables** window:
 Under the **System variables** section, click **New** to add the following environment variables:
    
    - **LIBUSB**:  
-     Set this to `C:/libusb/VS2022/MS64/dll/libusb-1.0.lib`.
+     Set this to `C:\libusb\VS2022\MS64\dll`.
      
    - **PICO_BOARD**:  
      Set this to `pico`.
