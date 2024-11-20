@@ -1,3 +1,103 @@
+Updated by David Gofman
+
+# Windows OS Prerequisites for Raspberry Pi Pico SDK
+
+Follow the steps below to set up the necessary tools and environment for developing with the Raspberry Pi Pico SDK on Windows.
+
+## 1. **Install the Raspberry Pi Pico SDK**
+
+Download and install the latest version of the Raspberry Pi Pico SDK from the official repository:
+
+- [Download Raspberry Pi Pico SDK v1.x.x](https://github.com/raspberrypi/pico-setup-windows/releases)
+
+## 2. **Install Visual Studio 2022**
+
+To build projects using the Raspberry Pi Pico SDK, you will need **Visual Studio 2022** with the required C++ development tools:
+
+- Download and install Visual Studio 2022 from [Microsoft’s website](https://visualstudio.microsoft.com/).
+- Ensure that you select the "Desktop development with C++" workload during installation to include the necessary compilers and libraries for building C++ applications.
+
+## 3. **Open System Properties**
+
+1. Press `Win + X` and select **System**.
+2. Scroll down and click **Advanced system settings** (on the left side of the window).
+   - This opens the **System Properties** window.
+
+## 4. **Open Environment Variables**
+
+In the **System Properties** window:
+
+1. Click the **Environment Variables** button (located near the bottom).
+
+## 5. **Add System Environment Variables**
+
+In the **Environment Variables** window:
+
+1. Under the **System variables** section, click **New** to add the following environment variables:
+
+   - **PICO_BOARD**:  
+     Set this to `pico`.
+
+   - **PICO_SDK_HOME**:  
+     Set this to the path of your Raspberry Pi Pico SDK installation. For example:  
+     `C:\Program Files\Raspberry Pi\Pico SDK v1.5.1`  
+     *(Ensure to replace `v1.5.1` with your installed version of the SDK.)*
+
+   - **PICO_SDK_PATH**:  
+     Set this to the Pico SDK path:  
+     `%PICO_SDK_HOME%\pico-sdk`
+
+   - **PICO_TOOLCHAIN_PATH**:  
+     Set this to the directory containing the ARM toolchain binaries:  
+     `%PICO_SDK_HOME%\gcc-arm-none-eabi\bin`
+
+   - **MS_VS_PATH**:  
+     Set this to the installation path of Microsoft Visual Studio 2022:  
+     `C:\Program Files\Microsoft Visual Studio\2022`
+
+   - **MS_VS_VERSION**:  
+     Set this to your installed Windows SDK version (e.g., `10.0.19041.0`).
+
+   **Example of Environment Variables:**
+
+   | Variable            | Value                                                 |
+   |---------------------|-------------------------------------------------------|
+   | `PICO_BOARD`         | `pico`                                                |
+   | `PICO_SDK_HOME`      | `C:\Program Files\Raspberry Pi\Pico SDK v1.5.1`       |
+   | `PICO_SDK_PATH`      | `%PICO_SDK_HOME%\pico-sdk`                            |
+   | `PICO_TOOLCHAIN_PATH`| `%PICO_SDK_HOME%\gcc-arm-none-eabi\bin`               |
+   | `MS_VS_PATH`         | `C:\Program Files\Microsoft Visual Studio\2022`       |
+   | `MS_VS_VER`          | `14.33.31629`                                         |
+   | `WIN_KITS`           | `C:\Program Files (x86)\Windows Kits\10`              |
+   | `WIN_KITS_VER`       | `10.0.19041.0`                                        |
+   | `LIB`                | `%WIN_KITS%\Lib\%WIN_KITS_VER%\um\x64;%WIN_KITS%\Lib\%WIN_KITS_VER%\ucrt\x64;%MS_VS_PATH%\Community\VC\Tools\MSVC\%MS_VS_VER%\lib\x64;`  |
+   | `INCLUDE`            | `%WIN_KITS%\Include\%WIN_KITS_VER%\ucrt;%WIN_KITS%\Include\%WIN_KITS_VER%\um;%WIN_KITS%\Include\%WIN_KITS_VER%\shared;%MS_VS_VERSION%\Community\VC\Tools\MSVC\%MS_VS_VER%\include;` |
+
+
+## 6. **Modify System Environment Variables**
+   | Variable            | Value                                                 |
+   |---------------------|-------------------------------------------------------|
+   | `PATH`              | `%MS_VS_VERSION%\Community\VC\Tools\MSVC\%MS_VS_VER%\bin\Hostx64\x64` |        
+   |                     | `%WIN_KITS%\bin\%WIN_KITS_VER%\x64` |
+   |                     | `%PICO_SDK_HOME%\cmake\bin` |
+   |                     | `%PICO_SDK_HOME%\gcc-arm-none-eabi\bin` |
+   |                     | `%PICO_SDK_HOME%\ninja` |
+   |                     | `%PICO_SDK_HOME%\picotool` |
+
+If needed, make sure to add or modify any additional environment variables that may be specific to your setup or project requirements.
+
+For example, you may need to modify the `Path` variable to include the **toolchain** binaries or **Python** binaries (if required by the SDK).
+
+## 7. **Verify Your Setup**
+
+After setting the environment variables:
+
+1. Open a new Command Prompt (`cmd.exe`) to ensure the changes take effect.
+2. Type `echo %PICO_SDK_HOME%` to verify that it returns the correct path to your Pico SDK installation.
+3. Optionally, test if the toolchain is accessible by typing `gcc --version` to verify that the ARM GCC toolchain is properly installed.
+
+
+
 ## Building
 
 You need to set PICO_SDK_PATH in the environment, or pass it to cmake with `-DPICO_SDK_PATH=/path/to/pico-sdk`. To use features such as signing or hashing, you will need to make sure the mbedtls submodule in the SDK is checked out - this can be done by running this from your SDK directory.
