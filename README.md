@@ -17,24 +17,36 @@ To build projects using the Raspberry Pi Pico SDK, you will need **Visual Studio
 - Download and install Visual Studio 2022 from [Microsoft’s website](https://visualstudio.microsoft.com/).
 - Ensure that you select the "Desktop development with C++" workload during installation to include the necessary compilers and libraries for building C++ applications.
 
-## 3. **Open System Properties**
+## 3. **Download and Extract LIBUSB_ROOT**
+
+To build projects with USB support, you need to download and set up the **libusb** library.
+
+1. Go to the [libusb releases page on GitHub](https://github.com/libusb/libusb/releases).
+2. Download the latest Windows zip archive (e.g., `libusb-1.0.x.x.zip`).
+3. Extract the zip file's contents to a directory on your machine. For example:  
+   `C:\libusb`
+
+## 4. **Open System Properties**
 
 1. Press `Win + X` and select **System**.
 2. Scroll down and click **Advanced system settings** (on the left side of the window).
    - This opens the **System Properties** window.
 
-## 4. **Open Environment Variables**
+## 5. **Open Environment Variables**
 
 In the **System Properties** window:
 
-1. Click the **Environment Variables** button (located near the bottom).
+Click the **Environment Variables** button (located near the bottom).
 
-## 5. **Add System Environment Variables**
+## 6. **Add System Environment Variables**
 
 In the **Environment Variables** window:
 
-1. Under the **System variables** section, click **New** to add the following environment variables:
-
+Under the **System variables** section, click **New** to add the following environment variables:
+   
+   - **LIBUSB**:  
+     Set this to `C:/libusb/VS2022/MS64/dll/libusb-1.0.lib`.
+     
    - **PICO_BOARD**:  
      Set this to `pico`.
 
@@ -74,7 +86,7 @@ In the **Environment Variables** window:
    | `INCLUDE`            | `%WIN_KITS%\Include\%WIN_KITS_VER%\ucrt;%WIN_KITS%\Include\%WIN_KITS_VER%\um;%WIN_KITS%\Include\%WIN_KITS_VER%\shared;%MS_VS_PATH%\Community\VC\Tools\MSVC\%MS_VS_VER%\include;` |
 
 
-## 6. **Modify System Environment Variables**
+## 7. **Modify System Environment Variables**
    | Variable            | Value                                                 |
    |---------------------|-------------------------------------------------------|
    | `PATH`              | `%MS_VS_PATH%\Community\VC\Tools\MSVC\%MS_VS_VER%\bin\Hostx64\x64` |        
@@ -88,7 +100,7 @@ If needed, make sure to add or modify any additional environment variables that 
 
 For example, you may need to modify the `Path` variable to include the **toolchain** binaries or **Python** binaries (if required by the SDK).
 
-## 7. **Verify Your Setup**
+## 8. **Verify Your Setup**
 
 After setting the environment variables:
 
