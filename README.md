@@ -77,7 +77,7 @@ In the **Environment Variables** window:
 ## 6. **Modify System Environment Variables**
    | Variable            | Value                                                 |
    |---------------------|-------------------------------------------------------|
-   | `PATH`              | `%MS_VS_VERSION%\Community\VC\Tools\MSVC\%MS_VS_VER%\bin\Hostx64\x64` |        
+   | `PATH`              | `%MS_VS_PATH%\Community\VC\Tools\MSVC\%MS_VS_VER%\bin\Hostx64\x64` |        
    |                     | `%WIN_KITS%\bin\%WIN_KITS_VER%\x64` |
    |                     | `%PICO_SDK_HOME%\cmake\bin` |
    |                     | `%PICO_SDK_HOME%\gcc-arm-none-eabi\bin` |
